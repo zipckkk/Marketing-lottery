@@ -13,10 +13,16 @@ thread:
         policy: CallerRunsPolicy
 
 # 数据库配置 - sharding-jdbc 分库分表
+#spring:
+#  datasource:
+#    driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
+#    url: jdbc:shardingsphere:classpath:sharding/sharding-jdbc-dev.yaml
 spring:
   datasource:
-    driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
-    url: jdbc:shardingsphere:classpath:sharding/sharding-jdbc-dev.yaml
+    username: root
+    password: abc123
+    url: jdbc:mysql://127.0.0.1:3306/big_market?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml
