@@ -9,8 +9,9 @@ package cn.godrel.domain.strategy.service.armory;
  * @Version 1.0
  */
 public interface IStrategyArmory {
-
-    void assembleLotteryStrategy(Long strategyId);
-
-    Integer getRandomAwardId(Long strategyId);
+    /**
+     * 装配抽奖配置【触发的时机可以为活动审核通过后进行调用】
+     * @param strategyId
+     */
+    boolean assembleLotteryStrategy(Long strategyId);
 }
