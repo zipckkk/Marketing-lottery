@@ -25,7 +25,7 @@ public class StrategyEntity {
     private String strategyId;
     //抽奖策略描述
     private String strategyDesc;
-    //抽奖规则模型
+    //抽奖规则模型：rule_weight,rule_blacklist
     private String ruleModels;
 
     public String[] ruleModels(){

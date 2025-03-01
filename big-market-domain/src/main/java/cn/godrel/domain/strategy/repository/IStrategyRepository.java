@@ -26,7 +26,14 @@ public interface IStrategyRepository {
 
     Integer getStrategyAwardAssemble(String key, Integer rateKey);
 
+    /**
+     * 查询：strategy_id, strategy_desc, rule_models
+     * @param strategyId
+     * @return
+     */
     StrategyEntity queryStrategyEntityByStrategyId(Long strategyId);
 
     StrategyRuleEntity queryStrategyRule(Long strategyId, String ruleModel);
+
+    String queryStrategyRuleValue(Long strategyId, Integer awardId, String ruleModel);
 }

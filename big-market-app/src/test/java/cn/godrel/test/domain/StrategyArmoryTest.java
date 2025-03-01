@@ -23,7 +23,7 @@ import java.util.LinkedList;
  */
 @Slf4j
 @RunWith(SpringRunner.class )
-@SpringBootTest
+//@SpringBootTest
 public class StrategyArmoryTest {
 
     @Resource
