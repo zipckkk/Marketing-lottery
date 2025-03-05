@@ -36,7 +36,10 @@ public class StrategyArmoryDispatch implements IStrategyArmory, IStrategyDispatc
     public boolean assembleLotteryStrategy(Long strategyId) {
         //1. 查询策略配置
         List<StrategyAwardEntity> strategyAwardEntities = repository.queryStrategyAwardList(strategyId);
-        //if (strategyAwardEntities == null || strategyAwardEntities.isEmpty()) return false;
+        /**
+         * 其它规则配置
+         */
+        assembleLotteryStrategy(String.valueOf(strategyId), strategyAwardEntities); //2025-3-3 参照xfg添加的
 
         //2. 权重策略配置 - 适用于rule_weight权重规则配置
         StrategyEntity strategyEntity = repository.queryStrategyEntityByStrategyId(strategyId);

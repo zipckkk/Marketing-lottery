@@ -2,7 +2,7 @@ package cn.godrel.domain.strategy.service.rule.impl;
 
 import cn.godrel.domain.strategy.model.entity.RuleActionEntity;
 import cn.godrel.domain.strategy.model.entity.RuleMatterEntity;
-import cn.godrel.domain.strategy.model.vo.RuleLogicCheckTypeVO;
+import cn.godrel.domain.strategy.model.valobj.RuleLogicCheckTypeVO;
 import cn.godrel.domain.strategy.repository.IStrategyRepository;
 import cn.godrel.domain.strategy.service.annotation.LogicStrategy;
 import cn.godrel.domain.strategy.service.rule.ILogicFilter;

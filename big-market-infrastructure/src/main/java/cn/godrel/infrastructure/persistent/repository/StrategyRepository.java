@@ -3,6 +3,7 @@ package cn.godrel.infrastructure.persistent.repository;
 import cn.godrel.domain.strategy.model.entity.StrategyAwardEntity;
 import cn.godrel.domain.strategy.model.entity.StrategyEntity;
 import cn.godrel.domain.strategy.model.entity.StrategyRuleEntity;
+import cn.godrel.domain.strategy.model.valobj.StrategyAwardRuleModelVO;
 import cn.godrel.domain.strategy.repository.IStrategyRepository;
 import cn.godrel.infrastructure.persistent.dao.IStrategyAwardDao;
 import cn.godrel.infrastructure.persistent.dao.IStrategyDao;
@@ -103,6 +104,7 @@ public class StrategyRepository implements IStrategyRepository {
         StrategyEntity strategyEntity = redisService.getValue(cacheKey);
         if (strategyEntity != null) return strategyEntity;
         Strategy strategy = strategyDao.queryStrategyByStrategyId(strategyId);
+        if (null == strategy) return StrategyEntity.builder().build(); //2025-3-3 参照xfg添加的
         strategyEntity = StrategyEntity.builder()
                 .strategyId(strategy.getStrategyId())
                 .strategyDesc(strategy.getStrategyDesc())
@@ -135,5 +137,15 @@ public class StrategyRepository implements IStrategyRepository {
         strategyRule.setAwardId(awardId);
         strategyRule.setRuleModel(ruleModel);
         return strategyRuleDao.queryStrategyRuleValue(strategyRule);
+    }
+
+    @Override
+    public StrategyAwardRuleModelVO queryStrategyAwardRuleModel(Long strategyId, Integer awardId) {
+        StrategyAward strategyAward = new StrategyAward();
+        strategyAward.setStrategyId(strategyId);
+        strategyAward.setAwardId(awardId);
+        String ruleModels = strategyAwardDao.queryStrategyAwardRuleModels(strategyAward);
+        return StrategyAwardRuleModelVO.builder().ruleModels(ruleModels).build();
+
     }
 }

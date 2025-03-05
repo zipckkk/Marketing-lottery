@@ -23,7 +23,7 @@ import java.util.LinkedList;
  */
 @Slf4j
 @RunWith(SpringRunner.class )
-//@SpringBootTest
+@SpringBootTest
 public class StrategyArmoryTest {
 
     @Resource
@@ -31,9 +31,12 @@ public class StrategyArmoryTest {
     @Resource
     private IStrategyDispatch strategyDispatch;
     
-    @Before
+//    @Before
+    @Test
     public void testStrategyArmory(){
         boolean success = strategyArmory.assembleLotteryStrategy(100001L);
+        boolean success1 = strategyArmory.assembleLotteryStrategy(100002L);
+        boolean success2 = strategyArmory.assembleLotteryStrategy(100003L);
         log.info("测试结果:{}",success);
     }
 

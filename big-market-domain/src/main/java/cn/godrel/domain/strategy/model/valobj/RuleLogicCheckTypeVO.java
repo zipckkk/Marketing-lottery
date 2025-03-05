@@ -1,4 +1,4 @@
-package cn.godrel.domain.strategy.model.vo;
+package cn.godrel.domain.strategy.model.valobj;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,8 +1,7 @@
 package cn.godrel.domain.strategy.model.entity;
 
-import cn.godrel.domain.strategy.model.vo.RuleLogicCheckTypeVO;
+import cn.godrel.domain.strategy.model.valobj.RuleLogicCheckTypeVO;
 import lombok.*;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  * ClassName: RuleActionEntity
