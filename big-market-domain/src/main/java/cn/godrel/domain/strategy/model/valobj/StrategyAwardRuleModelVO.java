@@ -1,6 +1,6 @@
 package cn.godrel.domain.strategy.model.valobj;
 
-import cn.godrel.domain.strategy.service.rule.factory.DefaultLogicFactory;
+import cn.godrel.domain.strategy.service.rule.filter.factory.DefaultLogicFactory;
 import cn.godrel.types.common.Constants;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

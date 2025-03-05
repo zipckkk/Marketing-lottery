@@ -1,4 +1,4 @@
-package cn.godrel.domain.strategy.service.rule;
+package cn.godrel.domain.strategy.service.rule.filter;
 
 import cn.godrel.domain.strategy.model.entity.RuleActionEntity;
 import cn.godrel.domain.strategy.model.entity.RuleMatterEntity;

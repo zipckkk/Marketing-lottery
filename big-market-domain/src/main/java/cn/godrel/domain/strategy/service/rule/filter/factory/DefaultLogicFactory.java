@@ -1,8 +1,8 @@
-package cn.godrel.domain.strategy.service.rule.factory;
+package cn.godrel.domain.strategy.service.rule.filter.factory;
 
 import cn.godrel.domain.strategy.model.entity.RuleActionEntity;
 import cn.godrel.domain.strategy.service.annotation.LogicStrategy;
-import cn.godrel.domain.strategy.service.rule.ILogicFilter;
+import cn.godrel.domain.strategy.service.rule.filter.ILogicFilter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * ClassName: DefaultLogicFactory
- * Package: cn.godrel.domain.strategy.service.rule.factory
+ * Package: cn.godrel.domain.strategy.service.rule.filter.factory
  * Description: 规则工厂
  * @Author 张世召
  * @Create 2025/2/28 17:16

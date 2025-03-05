@@ -1,12 +1,12 @@
-package cn.godrel.domain.strategy.service.rule.impl;
+package cn.godrel.domain.strategy.service.rule.filter.impl;
 
 import cn.godrel.domain.strategy.model.entity.RuleActionEntity;
 import cn.godrel.domain.strategy.model.entity.RuleMatterEntity;
 import cn.godrel.domain.strategy.model.valobj.RuleLogicCheckTypeVO;
 import cn.godrel.domain.strategy.repository.IStrategyRepository;
 import cn.godrel.domain.strategy.service.annotation.LogicStrategy;
-import cn.godrel.domain.strategy.service.rule.ILogicFilter;
-import cn.godrel.domain.strategy.service.rule.factory.DefaultLogicFactory;
+import cn.godrel.domain.strategy.service.rule.filter.ILogicFilter;
+import cn.godrel.domain.strategy.service.rule.filter.factory.DefaultLogicFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 
 /**
  * ClassName: RuleLockLogFilter
- * Package: cn.godrel.domain.strategy.service.rule.impl
+ * Package: cn.godrel.domain.strategy.service.rule.filter.impl
  * Description: 用户抽奖 n次后，对应奖品可以解锁抽奖
  * @Author 张世召
  * @Create 2025/3/2 11:50
