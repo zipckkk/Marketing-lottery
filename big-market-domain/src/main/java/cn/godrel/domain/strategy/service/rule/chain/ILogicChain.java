@@ -16,7 +16,4 @@ public interface ILogicChain extends ILogicChainArmory{
      * @return 奖品id
      */
     Integer logic(String userId,Long strategyId);
-
-
-
 }

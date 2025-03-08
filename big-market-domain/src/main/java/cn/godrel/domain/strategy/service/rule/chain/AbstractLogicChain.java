@@ -4,7 +4,6 @@ package cn.godrel.domain.strategy.service.rule.chain;
  * ClassName: AbstractLogicChain
  * Package: cn.godrel.domain.strategy.service.rule.chain
  * Description:
- *
  * @Author 张世召
  * @Create 2025/3/5 16:31
  * @Version 1.0
