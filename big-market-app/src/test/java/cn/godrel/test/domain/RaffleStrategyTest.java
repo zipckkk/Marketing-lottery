@@ -5,7 +5,6 @@ import cn.godrel.domain.strategy.model.entity.RaffleFactorEntity;
 import cn.godrel.domain.strategy.service.IRaffleStrategy;
 import cn.godrel.domain.strategy.service.armory.IStrategyArmory;
 import cn.godrel.domain.strategy.service.rule.chain.Impl.RuleWeightLogicChain;
-import cn.godrel.domain.strategy.service.rule.filter.impl.RuleLockLogicFilter;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
@@ -35,8 +34,6 @@ public class RaffleStrategyTest {
     private RuleWeightLogicChain ruleWeightLogicFilter;
     @Resource
     private IStrategyArmory strategyArmory;
-    @Resource
-    private RuleLockLogicFilter ruleLockLogicFilter;
 
 
     @Before
@@ -48,7 +45,6 @@ public class RaffleStrategyTest {
 
         // 通过反射 mock 规则中的值
         ReflectionTestUtils.setField(ruleWeightLogicFilter, "userScore", 40500L);
-        ReflectionTestUtils.setField(ruleLockLogicFilter, "userRaffleCount", 0L);
 
     }
 

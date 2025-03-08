@@ -3,6 +3,7 @@ package cn.godrel.domain.strategy.repository;
 import cn.godrel.domain.strategy.model.entity.StrategyAwardEntity;
 import cn.godrel.domain.strategy.model.entity.StrategyEntity;
 import cn.godrel.domain.strategy.model.entity.StrategyRuleEntity;
+import cn.godrel.domain.strategy.model.valobj.RuleTreeVO;
 import cn.godrel.domain.strategy.model.valobj.StrategyAwardRuleModelVO;
 
 import java.util.HashMap;
@@ -39,5 +40,8 @@ public interface IStrategyRepository {
     String queryStrategyRuleValue(Long strategyId, String ruleModel);
     String queryStrategyRuleValue(Long strategyId, Integer awardId, String ruleModel);
 
-    StrategyAwardRuleModelVO queryStrategyAwardRuleModel(Long strategyId, Integer awardId);
+    StrategyAwardRuleModelVO queryStrategyAwardRuleModelVO(Long strategyId, Integer awardId);
+
+    RuleTreeVO queryRuleTreeVOByTreeId(String tree_lock);
+
 }

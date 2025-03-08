@@ -2,6 +2,7 @@ package cn.godrel.domain.strategy.service.rule.chain.Impl;
 
 import cn.godrel.domain.strategy.repository.IStrategyRepository;
 import cn.godrel.domain.strategy.service.rule.chain.AbstractLogicChain;
+import cn.godrel.domain.strategy.service.rule.chain.factory.DefaultChainFactory;
 import cn.godrel.types.common.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -23,7 +24,7 @@ public class BackListLogicChain extends AbstractLogicChain {
     private IStrategyRepository repository;
 
     @Override
-    public Integer logic(String userId, Long strategyId) {
+    public DefaultChainFactory.StrategyAwardVO logic(String userId, Long strategyId) {
         log.info("抽奖责任链-黑名单开始 userId: {} strategyId: {} ruleModel: {}", userId, strategyId, ruleModel());
         String ruleValue = repository.queryStrategyRuleValue(strategyId, ruleModel());
         String[] splitRuleValue = ruleValue.split(Constants.COLON);
@@ -35,7 +36,11 @@ public class BackListLogicChain extends AbstractLogicChain {
         for (String userBlackId : userBlackIds) {
             if (userId.equals(userBlackId)) {
                 log.info("抽奖责任链-黑名单接管 userId: {} strategyId: {} ruleModel: {} awardId: {}", userId, strategyId, ruleModel(), awardId);
-                return awardId;
+                return DefaultChainFactory.StrategyAwardVO.builder()
+                        .awardId(awardId)
+                        .logicModel(ruleModel())
+                        .build();
+
             }
         }
         // 过滤其他责任链
@@ -45,6 +50,6 @@ public class BackListLogicChain extends AbstractLogicChain {
 
     @Override
     protected String ruleModel() {
-        return "rule_blacklist";
+        return DefaultChainFactory.LogicModel.RULE_BLACKLIST.getCode();
     }
 }

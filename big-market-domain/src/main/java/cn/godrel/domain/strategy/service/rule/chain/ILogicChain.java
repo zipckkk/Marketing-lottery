@@ -1,5 +1,7 @@
 package cn.godrel.domain.strategy.service.rule.chain;
 
+import cn.godrel.domain.strategy.service.rule.chain.factory.DefaultChainFactory;
+
 /**
  * ClassName: ILogicChain
  * Package: cn.godrel.domain.strategy.service.rule.chain
@@ -15,5 +17,5 @@ public interface ILogicChain extends ILogicChainArmory{
      * @param strategyId  策略id
      * @return 奖品id
      */
-    Integer logic(String userId,Long strategyId);
+    DefaultChainFactory.StrategyAwardVO logic(String userId, Long strategyId);
 }
