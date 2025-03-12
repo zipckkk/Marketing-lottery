@@ -13,5 +13,5 @@ import cn.godrel.domain.strategy.service.rule.tree.factory.DefaultTreeFactory;
  */
 public interface ILogicTreeNode {
 
-    public DefaultTreeFactory.TreeActionEntity logic(String userId, Long strategyId, Integer awardId);
+    public DefaultTreeFactory.TreeActionEntity logic(String userId, Long strategyId, Integer awardId,String ruleValue);
 }

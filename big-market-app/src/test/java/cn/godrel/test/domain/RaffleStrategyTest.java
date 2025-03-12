@@ -5,6 +5,7 @@ import cn.godrel.domain.strategy.model.entity.RaffleFactorEntity;
 import cn.godrel.domain.strategy.service.IRaffleStrategy;
 import cn.godrel.domain.strategy.service.armory.IStrategyArmory;
 import cn.godrel.domain.strategy.service.rule.chain.Impl.RuleWeightLogicChain;
+import cn.godrel.domain.strategy.service.rule.tree.impl.RuleLockLogicTreeNode;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
@@ -15,11 +16,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import javax.annotation.Resource;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * ClassName: RaffleStrategyTest
  * Package: cn.godrel.test.domain
  * Description:
+ *
  * @Author 张世召
  * @Create 2025/3/1 12:01
  * @Version 1.0
@@ -34,31 +37,38 @@ public class RaffleStrategyTest {
     private RuleWeightLogicChain ruleWeightLogicFilter;
     @Resource
     private IStrategyArmory strategyArmory;
+    @Resource
+    private RuleLockLogicTreeNode ruleLockLogicTreeNode;
 
 
     @Before
     public void setUp() {
         // 策略装配 100001、100002、100003
-        log.info("测试结果：{}", strategyArmory.assembleLotteryStrategy(100001L));
-        log.info("测试结果：{}", strategyArmory.assembleLotteryStrategy(100002L));
-        log.info("测试结果：{}", strategyArmory.assembleLotteryStrategy(100003L));
+//        log.info("测试结果：{}", strategyArmory.assembleLotteryStrategy(100001L));
+//        log.info("测试结果：{}", strategyArmory.assembleLotteryStrategy(100002L));
+//        log.info("测试结果：{}", strategyArmory.assembleLotteryStrategy(100003L));
+        log.info("测试结果：{}", strategyArmory.assembleLotteryStrategy(100006L));
 
         // 通过反射 mock 规则中的值
-        ReflectionTestUtils.setField(ruleWeightLogicFilter, "userScore", 40500L);
-
+        ReflectionTestUtils.setField(ruleWeightLogicFilter, "userScore", 4900L);
+        ReflectionTestUtils.setField(ruleLockLogicTreeNode, "userRaffleCount", 10L);
     }
 
     @Test
-    public void test_performRaffle() {
-        RaffleFactorEntity raffleFactorEntity = RaffleFactorEntity.builder()
-                .userId("godrel")
-                .strategyId(100001L)
-                .build();
+    public void test_performRaffle() throws InterruptedException {
+        for (int i = 0; i < 1; i++) {
+            RaffleFactorEntity raffleFactorEntity = RaffleFactorEntity.builder()
+                    .userId("godrel")
+                    .strategyId(100006L)
+                    .build();
 
-        RaffleAwardEntity raffleAwardEntity = raffleStrategy.performRaffle(raffleFactorEntity);
+            RaffleAwardEntity raffleAwardEntity = raffleStrategy.performRaffle(raffleFactorEntity);
 
-        log.info("请求参数：{}", JSON.toJSONString(raffleFactorEntity));
-        log.info("测试结果：{}", JSON.toJSONString(raffleAwardEntity));
+            log.info("请求参数：{}", JSON.toJSONString(raffleFactorEntity));
+            log.info("测试结果：{}", JSON.toJSONString(raffleAwardEntity));
+        }
+        //等待UpdateAwardStockJob消费队列
+        new CountDownLatch(1).await();
     }
 
     @Test
@@ -79,7 +89,7 @@ public class RaffleStrategyTest {
      * ReflectionTestUtils.setField(ruleLockLogicFilter, "userRaffleCount", 10L);
      */
     @Test
-    public void test_raffle_center_rule_lock(){
+    public void test_raffle_center_rule_lock() {
         RaffleFactorEntity raffleFactorEntity = RaffleFactorEntity.builder()
                 .userId("xiaofuge")
                 .strategyId(100003L)
@@ -90,8 +100,6 @@ public class RaffleStrategyTest {
         log.info("请求参数：{}", JSON.toJSONString(raffleFactorEntity));
         log.info("测试结果：{}", JSON.toJSONString(raffleAwardEntity));
     }
-
-
 
 
 }

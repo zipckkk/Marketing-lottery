@@ -5,6 +5,7 @@ import cn.godrel.domain.strategy.model.entity.StrategyEntity;
 import cn.godrel.domain.strategy.model.entity.StrategyRuleEntity;
 import cn.godrel.domain.strategy.model.valobj.RuleTreeVO;
 import cn.godrel.domain.strategy.model.valobj.StrategyAwardRuleModelVO;
+import cn.godrel.domain.strategy.model.valobj.StrategyAwardStockKeyVO;
 
 import java.util.HashMap;
 import java.util.List;
@@ -44,4 +45,23 @@ public interface IStrategyRepository {
 
     RuleTreeVO queryRuleTreeVOByTreeId(String tree_lock);
 
+    /**
+     * 缓存奖品库存
+     * @param cacheKey key
+     * @param awardCount 库存值
+     */
+    void cacheStrategyAwardCount(String cacheKey, Integer awardCount);
+
+    /**
+     * 扣减奖品库存
+     * @param cacheKey key
+     * @return
+     */
+    Boolean subtractionAwardStock(String cacheKey);
+
+    void awardStockConsumeSendQueue(StrategyAwardStockKeyVO strategyAwardStockKeyVO);
+
+    StrategyAwardStockKeyVO takeQueueValue();
+
+    void updateStrategyAwardStock(Long strategyId, Integer awardId);
 }

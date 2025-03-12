@@ -2,6 +2,7 @@ package cn.godrel.domain.strategy.service.raffle;
 
 import cn.godrel.domain.strategy.model.valobj.RuleTreeVO;
 import cn.godrel.domain.strategy.model.valobj.StrategyAwardRuleModelVO;
+import cn.godrel.domain.strategy.model.valobj.StrategyAwardStockKeyVO;
 import cn.godrel.domain.strategy.repository.IStrategyRepository;
 import cn.godrel.domain.strategy.service.AbstractRaffleStrategy;
 import cn.godrel.domain.strategy.service.armory.IStrategyDispatch;
@@ -25,7 +26,6 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class DefaultRaffleStrategy extends AbstractRaffleStrategy {
-
 
     public DefaultRaffleStrategy(IStrategyRepository repository, IStrategyDispatch strategyDispatch, DefaultChainFactory defaultChainFactory, DefaultTreeFactory defaultTreeFactory) {
         super(repository, strategyDispatch, defaultChainFactory, defaultTreeFactory);
@@ -51,4 +51,13 @@ public class DefaultRaffleStrategy extends AbstractRaffleStrategy {
         return treeEngine.process(userId, strategyId, awardId);
     }
 
+    @Override
+    public StrategyAwardStockKeyVO takeQueueValue() throws InterruptedException {
+        return repository.takeQueueValue();
+    }
+
+    @Override
+    public void updateStrategyAwardStock(Long strategyId, Integer awardId) {
+        repository.updateStrategyAwardStock(strategyId, awardId);
+    }
 }

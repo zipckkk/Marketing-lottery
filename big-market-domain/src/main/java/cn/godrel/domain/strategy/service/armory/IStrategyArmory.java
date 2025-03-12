@@ -11,7 +11,7 @@ package cn.godrel.domain.strategy.service.armory;
 public interface IStrategyArmory {
     /**
      * 装配抽奖配置【触发的时机可以为活动审核通过后进行调用】
-     * @param strategyId
+     * @param strategyId 策略id
      */
     boolean assembleLotteryStrategy(Long strategyId);
 }

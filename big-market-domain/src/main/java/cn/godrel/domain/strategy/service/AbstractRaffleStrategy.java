@@ -15,12 +15,13 @@ import org.apache.commons.lang3.StringUtils;
  * ClassName: AbstractRaffleStrategy
  * Package: cn.godrel.domain.strategy.service.raffle
  * Description:抽奖策略抽象类
+ *
  * @Author 张世召
  * @Create 2025/2/28 15:11
  * @Version 1.0
  */
 @Slf4j
-public abstract class AbstractRaffleStrategy implements IRaffleStrategy {
+public abstract class AbstractRaffleStrategy implements IRaffleStrategy, IRaffleStock {
 
     // 策略仓储服务 -> domain层像一个大厨，仓储层提供米面粮油
     protected IStrategyRepository repository;
