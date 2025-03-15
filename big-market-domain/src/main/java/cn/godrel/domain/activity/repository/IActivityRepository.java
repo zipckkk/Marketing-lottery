@@ -1,5 +1,6 @@
 package cn.godrel.domain.activity.repository;
 
+import cn.godrel.domain.activity.model.aggregate.CreateOrderAggregate;
 import cn.godrel.domain.activity.model.entity.ActivityCountEntity;
 import cn.godrel.domain.activity.model.entity.ActivityEntity;
 import cn.godrel.domain.activity.model.entity.ActivitySkuEntity;
@@ -21,4 +22,5 @@ public interface IActivityRepository {
 
     ActivityCountEntity queryRaffleActivityCountByActivityCountId(Long activityCountId);
 
+    void doSaveOrder(CreateOrderAggregate createOrderAggregate);
 }
