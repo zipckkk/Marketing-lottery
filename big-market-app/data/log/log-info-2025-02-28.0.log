@@ -211,7 +211,7 @@ Caused by: org.apache.rocketmq.remoting.exception.RemotingConnectException: conn
 25-02-28.09:31:57.706 [xxl-job, executor JobLogFileCleanThread] INFO  JobLogFileCleanThread  - >>>>>>>>>>> xxl-job, executor JobLogFileCleanThread thread destroy.
 25-02-28.09:31:57.707 [xxl-job, executor TriggerCallbackThread] INFO  TriggerCallbackThread  - >>>>>>>>>>> xxl-job, executor callback thread destroy.
 25-02-28.09:31:57.707 [Thread-28       ] INFO  TriggerCallbackThread  - >>>>>>>>>>> xxl-job, executor retry callback thread destroy.
-25-02-28.09:31:57.726 [main            ] ERROR TestContextManager     - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@a6ff54df] to prepare test instance [cn.godrel.test.domain.StrategyArmoryTest@73260642]
+25-02-28.09:31:57.726 [main            ] ERROR TestContextManager     - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@a6ff54df] to prepare test instance [cn.godrel.test.domain.strategy.StrategyArmoryTest@73260642]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:98)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -486,7 +486,7 @@ Caused by: org.apache.rocketmq.remoting.exception.RemotingConnectException: conn
 25-02-28.09:32:34.260 [xxl-job, executor JobLogFileCleanThread] INFO  JobLogFileCleanThread  - >>>>>>>>>>> xxl-job, executor JobLogFileCleanThread thread destroy.
 25-02-28.09:32:34.260 [xxl-job, executor TriggerCallbackThread] INFO  TriggerCallbackThread  - >>>>>>>>>>> xxl-job, executor callback thread destroy.
 25-02-28.09:32:34.260 [Thread-28       ] INFO  TriggerCallbackThread  - >>>>>>>>>>> xxl-job, executor retry callback thread destroy.
-25-02-28.09:32:34.282 [main            ] ERROR TestContextManager     - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@e872f734] to prepare test instance [cn.godrel.test.domain.StrategyArmoryTest@7e190e0]
+25-02-28.09:32:34.282 [main            ] ERROR TestContextManager     - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@e872f734] to prepare test instance [cn.godrel.test.domain.strategy.StrategyArmoryTest@7e190e0]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:98)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)

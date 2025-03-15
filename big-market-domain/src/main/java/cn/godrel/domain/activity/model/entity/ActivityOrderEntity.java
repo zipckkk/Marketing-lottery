@@ -1,25 +1,27 @@
-package cn.godrel.infrastructure.persistent.po;
+package cn.godrel.domain.activity.model.entity;
 
+import cn.godrel.domain.activity.model.valobj.OrderStateVO;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 /**
- * ClassName: RaffleActivityOrder
- * Package: cn.godrel.infrastructure.persistent.po
- * Description: 抽奖活动单 持久化对象
+ * ClassName: ActivityOrderEntity
+ * Package: cn.godrel.domain.activity.model.entity
+ * Description: 活动参与实体对象
  *
  * @Author 张世召
- * @Create 2025/3/14 11:36
+ * @Create 2025/3/15 10:16
  * @Version 1.0
  */
 @Data
-public class RaffleActivityOrder {
-    /**
-     * 自增ID
-     */
-    private Long id;
-
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class ActivityOrderEntity {
     /**
      * 用户ID
      */
@@ -66,19 +68,8 @@ public class RaffleActivityOrder {
     private Integer monthCount;
 
     /**
-     * 订单状态（not_used、used、expire）
+     * 订单状态
      */
-    private String state;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
-
+    private OrderStateVO state;
 
 }

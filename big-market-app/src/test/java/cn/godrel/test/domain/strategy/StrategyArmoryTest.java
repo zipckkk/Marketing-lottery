@@ -1,4 +1,4 @@
-package cn.godrel.test.domain;
+package cn.godrel.test.domain.strategy;
 
 import cn.godrel.domain.strategy.service.armory.IStrategyArmory;
 import cn.godrel.domain.strategy.service.armory.IStrategyDispatch;

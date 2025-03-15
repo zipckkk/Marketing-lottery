@@ -79,7 +79,7 @@ Action:
 
 Consider defining a bean of type 'cn.godrel.domain.strategy.service.rule.filter.factory.DefaultLogicFactory' in your configuration.
 
-25-03-01.12:05:57.754 [main            ] ERROR TestContextManager     - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@71ba4969] to prepare test instance [cn.godrel.test.domain.RaffleStrategyTest@42a647e6]
+25-03-01.12:05:57.754 [main            ] ERROR TestContextManager     - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@71ba4969] to prepare test instance [cn.godrel.test.domain.strategy.RaffleStrategyTest@42a647e6]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:98)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)

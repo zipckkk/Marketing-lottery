@@ -1,4 +1,4 @@
-package cn.godrel.test.domain;
+package cn.godrel.test.domain.strategy;
 
 import cn.godrel.domain.strategy.model.valobj.*;
 import cn.godrel.domain.strategy.service.rule.tree.factory.DefaultTreeFactory;
