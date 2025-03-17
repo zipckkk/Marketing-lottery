@@ -4,6 +4,9 @@ import cn.godrel.domain.activity.model.aggregate.CreateOrderAggregate;
 import cn.godrel.domain.activity.model.entity.ActivityCountEntity;
 import cn.godrel.domain.activity.model.entity.ActivityEntity;
 import cn.godrel.domain.activity.model.entity.ActivitySkuEntity;
+import cn.godrel.domain.activity.model.valobj.ActivitySkuStockKeyVO;
+
+import java.util.Date;
 
 /**
  * ClassName: IActivityRepository
@@ -23,4 +26,18 @@ public interface IActivityRepository {
     ActivityCountEntity queryRaffleActivityCountByActivityCountId(Long activityCountId);
 
     void doSaveOrder(CreateOrderAggregate createOrderAggregate);
+
+    void cacheActivitySkuStockCount(String cacheKey, Integer stockCount);
+
+    boolean subtractionActivitySkuStock(Long sku, String cacheKey, Date endDateTime);
+
+    void activitySkuStockConsumeSendQueue(ActivitySkuStockKeyVO activitySkuStockKeyVO);
+
+    void updateActivitySkuStock(Long sku);
+
+    ActivitySkuStockKeyVO takeQueueValue();
+
+    void clearQueueValue();
+
+    void clearActivitySkuStock(Long sku);
 }
