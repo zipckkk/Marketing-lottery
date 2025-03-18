@@ -56,6 +56,7 @@ public class RaffleActivityPartakeService extends AbstractRaffleActivityPartake{
             activityAccountMonthEntity = new ActivityAccountMonthEntity();
             activityAccountMonthEntity.setUserId(userId);
             activityAccountMonthEntity.setActivityId(activityId);
+
             activityAccountMonthEntity.setMonth(month);
             activityAccountMonthEntity.setMonthCount(activityAccountEntity.getMonthCount());
             activityAccountMonthEntity.setMonthCountSurplus(activityAccountEntity.getMonthCountSurplus());

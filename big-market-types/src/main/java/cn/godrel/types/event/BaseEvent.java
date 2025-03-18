@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * ClassName: BaseEvent
  * Package: cn.godrel.types.event
- * Description: 基础时间
+ * Description: 基础事件
  *
  * @Author 张世召
  * @Create 2025/3/16 22:47
