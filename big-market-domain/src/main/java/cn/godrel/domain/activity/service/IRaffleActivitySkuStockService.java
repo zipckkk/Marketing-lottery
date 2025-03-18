@@ -11,7 +11,7 @@ import cn.godrel.domain.activity.model.valobj.ActivitySkuStockKeyVO;
  * @Create 2025/3/17 11:38
  * @Version 1.0
  */
-public interface ISkuStock {
+public interface IRaffleActivitySkuStockService {
     /**
      * 获取活动sku库存消耗队列
      *

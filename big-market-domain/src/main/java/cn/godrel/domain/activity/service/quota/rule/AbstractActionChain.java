@@ -1,4 +1,4 @@
-package cn.godrel.domain.activity.service.rule;
+package cn.godrel.domain.activity.service.quota.rule;
 
 /**
  * ClassName: AbstractActionChain

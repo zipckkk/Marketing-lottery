@@ -1,5 +1,9 @@
 package cn.godrel.infrastructure.persistent.dao;
 
+import cn.bugstack.middleware.db.router.annotation.DBRouter;
+import cn.godrel.infrastructure.persistent.po.RaffleActivityAccountDay;
+import org.apache.ibatis.annotations.Mapper;
+
 /**
  * ClassName: IRaffleActivityAccountDayDao
  * Package: cn.godrel.infrastructure.persistent.dao
@@ -9,5 +13,13 @@ package cn.godrel.infrastructure.persistent.dao;
  * @Create 2025/3/17 17:46
  * @Version 1.0
  */
+@Mapper
 public interface IRaffleActivityAccountDayDao {
+
+    @DBRouter
+    RaffleActivityAccountDay queryActivityAccountDayByUserId(RaffleActivityAccountDay raffleActivityAccountDayReq);
+
+    int updateActivityAccountDaySubtractionQuota(RaffleActivityAccountDay raffleActivityAccountDay);
+
+    void insertActivityAccountDay(RaffleActivityAccountDay raffleActivityAccountDay);
 }

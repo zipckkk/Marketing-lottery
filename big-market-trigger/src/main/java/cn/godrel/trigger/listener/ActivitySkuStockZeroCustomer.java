@@ -1,6 +1,6 @@
 package cn.godrel.trigger.listener;
 
-import cn.godrel.domain.activity.service.ISkuStock;
+import cn.godrel.domain.activity.service.IRaffleActivitySkuStockService;
 import cn.godrel.types.event.BaseEvent;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
@@ -28,7 +28,7 @@ public class ActivitySkuStockZeroCustomer {
     private String topic;
 
     @Resource
-    private ISkuStock skuStock;
+    private IRaffleActivitySkuStockService skuStock;
 
     @RabbitListener(queuesToDeclare = @Queue(value = "activity_sku_stock_zero"))
     public void listener(String message) {

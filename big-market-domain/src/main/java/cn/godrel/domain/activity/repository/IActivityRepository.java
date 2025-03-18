@@ -1,9 +1,8 @@
 package cn.godrel.domain.activity.repository;
 
-import cn.godrel.domain.activity.model.aggregate.CreateOrderAggregate;
-import cn.godrel.domain.activity.model.entity.ActivityCountEntity;
-import cn.godrel.domain.activity.model.entity.ActivityEntity;
-import cn.godrel.domain.activity.model.entity.ActivitySkuEntity;
+import cn.godrel.domain.activity.model.aggregate.CreatePartakeOrderAggregate;
+import cn.godrel.domain.activity.model.aggregate.CreateQuotaOrderAggregate;
+import cn.godrel.domain.activity.model.entity.*;
 import cn.godrel.domain.activity.model.valobj.ActivitySkuStockKeyVO;
 
 import java.util.Date;
@@ -25,7 +24,7 @@ public interface IActivityRepository {
 
     ActivityCountEntity queryRaffleActivityCountByActivityCountId(Long activityCountId);
 
-    void doSaveOrder(CreateOrderAggregate createOrderAggregate);
+    void doSaveOrder(CreateQuotaOrderAggregate createQuotaOrderAggregate);
 
     void cacheActivitySkuStockCount(String cacheKey, Integer stockCount);
 
@@ -40,4 +39,14 @@ public interface IActivityRepository {
     void clearQueueValue();
 
     void clearActivitySkuStock(Long sku);
+
+    void saveCreatePartakeOrderAggregate(CreatePartakeOrderAggregate createPartakeOrderAggregate);
+
+    UserRaffleOrderEntity queryNoUsedRaffleOrder(PartakeRaffleActivityEntity partakeRaffleActivityEntity);
+
+    ActivityAccountEntity queryActivityAccountByUserId(String userId, Long activityId);
+
+    ActivityAccountMonthEntity queryActivityAccountMonthByUserId(String userId, Long activityId, String month);
+
+    ActivityAccountDayEntity queryActivityAccountDayByUserId(String userId, Long activityId, String day);
 }

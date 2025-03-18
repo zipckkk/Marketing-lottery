@@ -1,10 +1,10 @@
-package cn.godrel.domain.activity.service.rule.impl;
+package cn.godrel.domain.activity.service.quota.rule.impl;
 
 import cn.godrel.domain.activity.model.entity.ActivityCountEntity;
 import cn.godrel.domain.activity.model.entity.ActivityEntity;
 import cn.godrel.domain.activity.model.entity.ActivitySkuEntity;
 import cn.godrel.domain.activity.model.valobj.ActivityStateVO;
-import cn.godrel.domain.activity.service.rule.AbstractActionChain;
+import cn.godrel.domain.activity.service.quota.rule.AbstractActionChain;
 import cn.godrel.types.enums.ResponseCode;
 import cn.godrel.types.exception.AppException;
 import lombok.extern.slf4j.Slf4j;

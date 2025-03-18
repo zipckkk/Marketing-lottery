@@ -1,28 +1,24 @@
-package cn.godrel.infrastructure.persistent.po;
+package cn.godrel.domain.activity.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 /**
- * ClassName: RaffleActivityAccountMonth
- * Package: cn.godrel.infrastructure.persistent.po
- * Description: 奖活动账户表-月次数
+ * ClassName: ActivityAccountMonthEntity
+ * Package: cn.godrel.domain.activity.model.entity
+ * Description: 活动账户（月）实体对象
  *
  * @Author 张世召
- * @Create 2025/3/17 17:42
+ * @Create 2025/3/17 20:14
  * @Version 1.0
  */
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RaffleActivityAccountMonth {
-    /** 自增ID */
-    private String id;
+public class ActivityAccountMonthEntity {
     /** 用户ID */
     private String userId;
     /** 活动ID */
@@ -33,9 +29,6 @@ public class RaffleActivityAccountMonth {
     private Integer monthCount;
     /** 月次数-剩余 */
     private Integer monthCountSurplus;
-    /** 创建时间 */
-    private Date createTime;
-    /** 更新时间 */
-    private Date updateTime;
+
 
 }

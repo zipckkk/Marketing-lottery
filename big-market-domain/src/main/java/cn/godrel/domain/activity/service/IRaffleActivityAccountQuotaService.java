@@ -13,7 +13,7 @@ import cn.godrel.domain.activity.model.entity.SkuRechargeEntity;
  * @Create 2025/3/15 11:11
  * @Version 1.0
  */
-public interface IRaffleOrder {
+public interface IRaffleActivityAccountQuotaService {
     /**
      * 以sku创建抽奖活动订单，获得参与抽奖资格（可消耗的次数）
      *

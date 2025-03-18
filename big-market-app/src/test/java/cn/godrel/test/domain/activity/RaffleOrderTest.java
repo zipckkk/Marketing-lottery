@@ -3,7 +3,7 @@ package cn.godrel.test.domain.activity;
 import cn.godrel.domain.activity.model.entity.ActivityOrderEntity;
 import cn.godrel.domain.activity.model.entity.ActivityShopCartEntity;
 import cn.godrel.domain.activity.model.entity.SkuRechargeEntity;
-import cn.godrel.domain.activity.service.IRaffleOrder;
+import cn.godrel.domain.activity.service.IRaffleActivityAccountQuotaService;
 import cn.godrel.domain.activity.service.armory.IActivityArmory;
 import cn.godrel.types.exception.AppException;
 import com.alibaba.fastjson.JSON;
@@ -32,7 +32,7 @@ import java.util.concurrent.CountDownLatch;
 @SpringBootTest
 public class RaffleOrderTest {
     @Resource
-    private IRaffleOrder raffleOrder;
+    private IRaffleActivityAccountQuotaService raffleOrder;
     @Resource
     private IActivityArmory activityArmory;
 
