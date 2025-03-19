@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 /**
  * ClassName: ActivityArmory
@@ -26,6 +27,23 @@ public class ActivityArmory implements IActivityArmory, IActivityDispatch{
     private IActivityRepository activityRepository;
 
     @Override
+    public boolean assembleActivitySkuByActivityId(Long activityId) {
+        //先从 raffle_activity_sku 查询出 ActivitySkuEntity 的集合
+        List<ActivitySkuEntity> activitySkuEntities = activityRepository.queryActivitySkuListByActivityId(activityId);
+        for (ActivitySkuEntity activitySkuEntity : activitySkuEntities) {
+            // 存到 redis 中
+            cacheActivitySkuStockCount(activitySkuEntity.getSku(), activitySkuEntity.getStockCountSurplus());
+            // 预热活动次数【查询时预热到缓存】
+            activityRepository.queryRaffleActivityCountByActivityCountId(activitySkuEntity.getActivityCountId());
+        }
+
+        // 预热活动【查询时预热到缓存】
+        activityRepository.queryRaffleActivityByActivityId(activityId);
+
+        return true;
+    }
+
+    @Override
     public boolean assembleActivitySku(Long sku) {
         // 预热活动sku库存
         ActivitySkuEntity activitySkuEntity = activityRepository.queryActivitySku(sku);
@@ -42,6 +60,7 @@ public class ActivityArmory implements IActivityArmory, IActivityDispatch{
     }
 
     private void cacheActivitySkuStockCount(Long sku, Integer stockCount) {
+        // activity_sku_stock_count_key_9011
         String cacheKey = Constants.RedisKey.ACTIVITY_SKU_STOCK_COUNT_KEY + sku;
         activityRepository.cacheActivitySkuStockCount(cacheKey, stockCount);
     }

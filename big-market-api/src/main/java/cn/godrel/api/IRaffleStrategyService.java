@@ -2,8 +2,8 @@ package cn.godrel.api;
 
 import cn.godrel.api.dto.RaffleAwardListRequestDTO;
 import cn.godrel.api.dto.RaffleAwardListResponseDTO;
-import cn.godrel.api.dto.RaffleRequestDTO;
-import cn.godrel.api.dto.RaffleResponseDTO;
+import cn.godrel.api.dto.RaffleStrategyRequestDTO;
+import cn.godrel.api.dto.RaffleStrategyResponseDTO;
 import cn.godrel.types.model.Response;
 
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
  * @Create 2025/3/13 11:35
  * @Version 1.0
  */
-public interface IRaffleService {
+public interface IRaffleStrategyService {
 
     /**
      * 策略装配接口
@@ -41,7 +41,7 @@ public interface IRaffleService {
      * @param requestDTO 请求参数
      * @return 抽奖结果
      */
-    Response<RaffleResponseDTO> randomRaffle(RaffleRequestDTO requestDTO);
+    Response<RaffleStrategyResponseDTO> randomRaffle(RaffleStrategyRequestDTO requestDTO);
 
 
 }

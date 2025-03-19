@@ -24,7 +24,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -80,7 +82,7 @@ public class ActivityRepository implements IActivityRepository {
 
     @Override
     public ActivityEntity queryRaffleActivityByActivityId(Long activityId) {
-        // 优先从缓存获取
+        // 优先从缓存获取：big_market_activity_key_100301
         String cacheKey = Constants.RedisKey.ACTIVITY_KEY + activityId;
         ActivityEntity activityEntity = redisService.getValue(cacheKey);
         if (null != activityEntity) return activityEntity;
@@ -101,7 +103,7 @@ public class ActivityRepository implements IActivityRepository {
 
     @Override
     public ActivityCountEntity queryRaffleActivityCountByActivityCountId(Long activityCountId) {
-        // 优先从缓存获取
+        // 优先从缓存获取：big_market_activity_count_key_11101
         String cacheKey = Constants.RedisKey.ACTIVITY_COUNT_KEY + activityCountId;
         ActivityCountEntity activityCountEntity = redisService.getValue(cacheKey);
         if (null != activityCountEntity) return activityCountEntity;
@@ -165,13 +167,13 @@ public class ActivityRepository implements IActivityRepository {
                         raffleActivityAccountDao.insert(raffleActivityAccount);
                     }
                     return 1;
-                } catch (DuplicateKeyException e){
+                } catch (DuplicateKeyException e) {
                     status.setRollbackOnly();
                     log.error("写入订单记录，唯一索引冲突 userId: {} activityId: {} sku: {}", activityOrderEntity.getUserId(), activityOrderEntity.getActivityId(), activityOrderEntity.getSku(), e);
                     throw new AppException(ResponseCode.INDEX_DUP.getCode());
                 }
             });
-        }finally {
+        } finally {
             dbRouter.clear();
         }
     }
@@ -353,6 +355,7 @@ public class ActivityRepository implements IActivityRepository {
 
     /**
      * 查询用户已领取但未使用的活动订单（活动权益、次数）
+     *
      * @param partakeRaffleActivityEntity 抽奖实体，包括用户ID和活动ID
      * @return 用户抽奖订单实体
      */
@@ -434,5 +437,20 @@ public class ActivityRepository implements IActivityRepository {
                 .dayCount(raffleActivityAccountDayRes.getDayCount())
                 .dayCountSurplus(raffleActivityAccountDayRes.getDayCountSurplus())
                 .build();
+    }
+
+    @Override
+    public List<ActivitySkuEntity> queryActivitySkuListByActivityId(Long activityId) {
+        List<RaffleActivitySku> raffleActivitySkus = raffleActivitySkuDao.queryActivitySkuListByActivityId(activityId);
+        List<ActivitySkuEntity> activitySkuEntities = new ArrayList<>(raffleActivitySkus.size());
+        for (RaffleActivitySku raffleActivitySku : raffleActivitySkus) {
+            ActivitySkuEntity activitySkuEntity = new ActivitySkuEntity();
+            activitySkuEntity.setSku(raffleActivitySku.getSku());
+            activitySkuEntity.setActivityCountId(raffleActivitySku.getActivityCountId());
+            activitySkuEntity.setStockCount(raffleActivitySku.getStockCount());
+            activitySkuEntity.setStockCountSurplus(raffleActivitySku.getStockCountSurplus());
+            activitySkuEntities.add(activitySkuEntity);
+        }
+        return activitySkuEntities;
     }
 }
