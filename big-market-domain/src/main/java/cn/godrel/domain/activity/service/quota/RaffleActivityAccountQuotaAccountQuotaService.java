@@ -55,7 +55,6 @@ public class RaffleActivityAccountQuotaAccountQuotaService extends AbstractRaffl
                 .monthCount(activityCountEntity.getMonthCount())
                 .activityOrderEntity(activityOrderEntity)
                 .build();
-
     }
 
     @Override
@@ -83,4 +82,8 @@ public class RaffleActivityAccountQuotaAccountQuotaService extends AbstractRaffl
         activityRepository.clearActivitySkuStock(sku);
     }
 
+    @Override
+    public Integer queryRaffleActivityAccountDayPartakeCount(Long activityId, String userId) {
+        return activityRepository.queryRaffleActivityAccountDayPartakeCount(activityId, userId);
+    }
 }

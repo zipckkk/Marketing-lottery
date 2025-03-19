@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 /**
  * ClassName: RaffleAwardEntity
  * Package: cn.godrel.domain.strategy.model.entity

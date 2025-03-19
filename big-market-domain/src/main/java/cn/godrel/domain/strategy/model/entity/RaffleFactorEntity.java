@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 /**
  * ClassName: RaffleFactorEntity
  * Package: cn.godrel.domain.strategy.model.entity
@@ -23,5 +25,9 @@ public class RaffleFactorEntity {
     private String userId;
     //策略id
     private Long strategyId;
+    /**
+     * 结束时间
+     */
+    private Date endDateTime;
 
 }
