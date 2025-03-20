@@ -1,4 +1,4 @@
-package cn.godrel.test.award;
+package cn.godrel.test.domain.award;
 
 import cn.godrel.domain.award.model.entity.UserAwardRecordEntity;
 import cn.godrel.domain.award.model.volobj.AwardStateVO;
