@@ -43,7 +43,7 @@ public abstract class AbstractRaffleActivityAccountQuotaAccountQuota extends Raf
     }
 
     @Override
-    public String createSkuRechargeOrder(SkuRechargeEntity skuRechargeEntity) {
+    public String createOrder(SkuRechargeEntity skuRechargeEntity) {
 
         // 1. 参数校验
         String userId = skuRechargeEntity.getUserId();
