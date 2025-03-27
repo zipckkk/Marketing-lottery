@@ -106,6 +106,5 @@ public class RaffleActivityPartakeService extends AbstractRaffleActivityPartake{
         userRaffleOrder.setOrderState(UserRaffleOrderStateVO.create);
         userRaffleOrder.setEndDateTime(activityEntity.getEndDateTime());
         return userRaffleOrder;
-
     }
 }

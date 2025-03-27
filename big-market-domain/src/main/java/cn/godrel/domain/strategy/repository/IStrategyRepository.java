@@ -4,6 +4,7 @@ import cn.godrel.domain.strategy.model.entity.StrategyAwardEntity;
 import cn.godrel.domain.strategy.model.entity.StrategyEntity;
 import cn.godrel.domain.strategy.model.entity.StrategyRuleEntity;
 import cn.godrel.domain.strategy.model.valobj.RuleTreeVO;
+import cn.godrel.domain.strategy.model.valobj.RuleWeightVO;
 import cn.godrel.domain.strategy.model.valobj.StrategyAwardRuleModelVO;
 import cn.godrel.domain.strategy.model.valobj.StrategyAwardStockKeyVO;
 
@@ -116,4 +117,8 @@ public interface IStrategyRepository {
      * @return key 规则树，value rule_lock 加锁值
      */
     Map<String, Integer> queryAwardRuleLockCount(String[] treeIds);
+
+    Integer queryActivityAccountTotalUseCount(String userId, Long strategyId);
+
+    List<RuleWeightVO> queryAwardRuleWeight(Long strategyId);
 }

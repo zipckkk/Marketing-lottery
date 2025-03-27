@@ -44,7 +44,6 @@ public class DefaultTreeFactory {
         private StrategyAwardVO strategyAwardVO;
     }
 
-
     @Data
     @Builder
     @AllArgsConstructor
@@ -55,6 +54,4 @@ public class DefaultTreeFactory {
         //抽奖奖品策略规则
         private String awardRuleValue;
     }
-
-
 }

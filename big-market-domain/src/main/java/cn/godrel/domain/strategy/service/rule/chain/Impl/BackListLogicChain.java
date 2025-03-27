@@ -40,7 +40,6 @@ public class BackListLogicChain extends AbstractLogicChain {
                         .awardId(awardId)
                         .logicModel(ruleModel())
                         .build();
-
             }
         }
         // 过滤其他责任链

@@ -29,6 +29,8 @@ public class ActivityAccountDayEntity {
     private Integer dayCount;
     /** 日次数-剩余 */
     private Integer dayCountSurplus;
+    /** 测试 */
+    private Integer test;
 
 
 }

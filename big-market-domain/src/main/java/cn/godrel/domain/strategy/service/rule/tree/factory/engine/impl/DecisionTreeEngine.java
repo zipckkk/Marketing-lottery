@@ -37,7 +37,8 @@ public class DecisionTreeEngine implements IDecisionTreeEngine {
     public DefaultTreeFactory.StrategyAwardVO process(String userId, Long strategyId, Integer awardId, Date endDateTime) {
         DefaultTreeFactory.StrategyAwardVO strategyAwardData = null;
 
-        //获取基础信息
+        // 获取基础信息
+        // 获取根节点
         String nextNode = ruleTreeVO.getTreeRootRuleNode();
         Map<String, RuleTreeNodeVO> treeNodeMap = ruleTreeVO.getTreeNodeMap();
 
@@ -70,7 +71,6 @@ public class DecisionTreeEngine implements IDecisionTreeEngine {
         }
         return null;
     }
-
 
     public boolean decisionLogic(String matterValue, RuleTreeNodeLineVO nodeLine) {
         switch (nodeLine.getRuleLimitType()) {

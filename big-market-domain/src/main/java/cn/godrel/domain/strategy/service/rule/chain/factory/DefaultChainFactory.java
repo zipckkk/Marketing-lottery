@@ -42,11 +42,9 @@ public class DefaultChainFactory {
             ILogicChain nextChain = logicChainGroup.get(ruleModels[i]);
             current = current.appendNext(nextChain);
         }
-
         current.appendNext(logicChainGroup.get("default"));
         return logicChain;
     }
-
 
     @Data
     @Builder
