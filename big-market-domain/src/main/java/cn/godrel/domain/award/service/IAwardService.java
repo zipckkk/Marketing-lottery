@@ -1,5 +1,6 @@
 package cn.godrel.domain.award.service;
 
+import cn.godrel.domain.award.model.entity.DistributeAwardEntity;
 import cn.godrel.domain.award.model.entity.UserAwardRecordEntity;
 
 /**
@@ -14,4 +15,9 @@ import cn.godrel.domain.award.model.entity.UserAwardRecordEntity;
 public interface IAwardService {
 
     void saveUserAwardRecord(UserAwardRecordEntity userAwardRecordEntity);
+
+    /**
+     * 配送发货奖品
+     */
+    void distributeAward(DistributeAwardEntity distributeAwardEntity);
 }
